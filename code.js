@@ -10,7 +10,12 @@
 
 function isEmptyString(string) {
   let result;
-  // Add your code here.
+
+  if (string.length > 0 ){
+    result = false;
+  } else {
+    result = true;
+  }
   return result;
 }
 
@@ -32,17 +37,22 @@ console.log(isEmptyString(" ") === false);
   Check to see if the text contains the phrase "java". Return true or false. 
   Remember that javascript is case sensitive! Your code should be case-insensitive, meaning that it works for "Java", "java", "JAVA", etc...
   
-  Hint: indexOf is case sensitive! So how can you search for any possible case of java? 
+  Hint: indexOf r is case sensitive! So how can you search foany possible case of java? 
   What if you made the entire text string lowercase? Then you searched through that?  
   Check out the Essential String Functions from the reading and see if there's a useful function there.
 */
 
 function containsWordJava(text) {
   let result;
-  // Add your code here.
+  
+  let lowerCaseText = text.toLowerCase();  
+  if(lowerCaseText.indexOf("java")> -1){
+    result = true;
+  } else {  
+    result = false;
+  }
   return result;
 }
-
 /* 
   -------TESTS---------------------------------------------------------------
   Run these commands to make sure you did it right. They should all be true.
@@ -68,48 +78,31 @@ console.log(containsWordJava("JAVA IS FUN :D") === true);
 */
 
 function trimSentence(text, maxLength) {
-  // Add your code here.
-  return text;
+  let result;
+  if(text.length > maxLength ){
+    let aSlice = text.slice(0, maxLength - 3);
+    result = aSlice + "…"; 
+  } else {
+    result = text;
+  }
+  return result; 
 }
 
 /* 
   -------TESTS---------------------------------------------------------------
   Run these commands to make sure you did it right. They should all be true.
 */
-console.log("-----Tests for Exercise One-----");
+console.log("-----Tests for Exercise Three-----");
 console.log("* Check Long sentence");
 console.log(
   trimSentence("The fox jumped over the fence to get to the farm.", 16) ===
-    "The fox jumpe..."
+    "The fox jumpe…"
 );
 console.log("* Check long word!");
 console.log(
   trimSentence("supercalifragilisticexpialidocious", 20) ===
-    "supercalifragilis..."
+    "supercalifragilis…"
 );
 console.log("* Check for shorter than the limit");
 console.log(trimSentence("Short", 16) === "Short");
-
-/* ------------------------------------------------
-  Exercise Four
-
-  Given the text, the goal is to limit the number of characters to maxLength and add an ellipsis "..." to the end.
-  Note that the length of the string should be maxLength including the ellipsis.  This means you'll have to subtract the lenght of the ellipsis fom the maxLength to know how many characters there should be.
-  Hint: Look at the "slice" method.  You can set the first argument to zero to make it start at the beginning of the string.   (Watch out that slice returns a new string! You need to assign it to something)
-*/
-
-function trimSentence(text, maxLength) {
-  // Add your code here.
-  return text;
-}
-
-/* 
-  -------TESTS---------------------------------------------------------------
-  Run these commands to make sure you did it right. They should all be true.
-*/
-console.log("-----Tests for Exercise One-----");
-console.log("* Check Long sentence");
-console.log(
-  trimSentence("The fox jumped over the fence to get to the farm.", 16) ===
-    "The fox jumpe..."
-);
+// 
